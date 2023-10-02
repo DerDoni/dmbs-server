@@ -10,6 +10,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   time.timeZone = "Europe/Berlin";
+  networking.hostName = "alucard";
 
    users.users.vincenzo = {
      isNormalUser = true;
