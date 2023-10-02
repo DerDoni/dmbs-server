@@ -8,8 +8,7 @@
     type = "disk";
     device = "/dev/vda";
     content = {
-      type = "table";
-      format = "gpt";
+      type = "gpt";
       partitions = {
         ESP = {
           priority = 1;
