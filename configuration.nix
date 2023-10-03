@@ -24,9 +24,10 @@
    users.users.kyrill = {
      isNormalUser = true;
      extraGroups = [ "wheel" "docker" ];
+     openssh.authorizedKeys.keys = [
+       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJtziDwyaqKfBPL1dDEM6kMdA+KTL+d0810PzAbOsWHn kyrill@kyrill-ThinkPad-T495"
+     ];
    };
-
-
 
    users.users.overleaf = {
      isNormalUser = true;
@@ -38,6 +39,7 @@
      extraGroups = [ "wheel" "docker" ];
      openssh.authorizedKeys.keys = [
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDj2dxqVTVKEzFUBw4Ol8G2XBwTHEwxFquzYNIelKBOzDQLE2WNvjfBko1iQkUNHrVfr3GiAuxdsE+O3hltDvo4UsQqsEqCSu/HEWRfyXDJrcLSm7ogkOAGBZtrmIr73YfGhpzRqcfnoAqSJOkX6PFmaFJ+YgoOuJLH6KbQo3xv0r5RqFkZhfnOiD5gwMtEExP4uawycb9mrsqxOWoMANR870qYq6JERxcGZU4m0UcvnpB01EbvTuWMIACL11cCylkcCPoDnv9KD94k0nhqGOE5/UB6mxRPBBJdQk3Dd3KXe2u2s++Enpu2WKdqOFywxxvXZ2PHBh4Oy8eJpytzMWxSUcLNcNk54JgAgaUCYYN0s3CmKh2r+z6pGSo5xUuJxyl13TfsSzCTsx3dkUOAaRpQAIHDseIDKX983zDS831GZA1d4xiOOtC7ct8F8z3qMokHU+N8OB0ys2T7cS29Q9BKSgaPSBlM0YTWQwD0R2Tf+D74VQnSYPgNNGFByZwV8bc= vincenzo@nixos"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJtziDwyaqKfBPL1dDEM6kMdA+KTL+d0810PzAbOsWHn kyrill@kyrill-ThinkPad-T495"
   ];
 
    };
@@ -75,6 +77,7 @@
        settings.PermitRootLogin = "no";
 
      };
+
      syncthing = {
        enable = true;
        user = "vincenzo";
@@ -127,9 +130,15 @@
           };
         };
      };
+   };
+  };
 
-       };
-          };
+  paperless = {
+    enable = true;
+    address = "0.0.0.0";
+    port = 58080;
+    extraConfig.PAPERLESS_OCR_LANGUAGE = "deu+eng";
+  };
  };
 
   nix = {
